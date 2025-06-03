@@ -16,17 +16,17 @@ def load_transactions(filename='financial_transactions.csv'):
             # Loop over each row in the CSV file one at a time
             for row in reader:
                 try:
-                    # Convert the 'date' string from the CSV into a datetime object
+                    # This converts the 'date' string from the CSV into a datetime object
                     # datetime.strptime parses a string based on the given format '%Y-%m-%d' (year-month-day)
                     date = datetime.strptime(row['date'], '%Y-%m-%d')
                     
-                    # Convert the 'transaction_id' from string to integer
+                    # This converts the 'transaction_id' from string to integer
                     transaction_id = int(row['transaction_id'])
                     
-                    # Convert the 'customer_id' from string to integer
+                    # This converts the 'customer_id' from string to integer
                     customer_id = int(row['customer_id'])
                     
-                    # Convert the 'amount' from string to floating point number
+                    # THis converts the 'amount' from string to floating point number
                     amount = float(row['amount'])
                     
                     # Check if the transaction type is 'debit' (case-insensitive)
@@ -44,16 +44,16 @@ def load_transactions(filename='financial_transactions.csv'):
                         'description': row['description'] # Additional description or notes
                     }
                     
-                    # Add this transaction dictionary to our list of transactions
+                    # Add this transaction dictionary to our list of transaactions
                     transactions.append(transaction)
                 
                 except ValueError as e:
-                    # If any conversion fails (e.g., invalid date or number), skip that row
+                    # If conversion fails, skip row
                     # Print a warning message with details about the problematic row and error
                     print(f"Skipping row due to data error: {row}. Error: {e}")
     
     except FileNotFoundError:
-        # If the CSV file does not exist at the specified path, inform the user
+        # If the CSV file does not exist at the specified path, inform user:
         print(f"Error: The file '{filename}' was not found.")
     
     # After processing all rows, return the list containing all successfully loaded transactions
