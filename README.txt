@@ -1,4 +1,5 @@
 Financial Transactions Tracker
+Jim Sears / June 2025
 
 This is a simple Python-based financial tracking program that lets you manage, analyze, and report your income and expenses through a terminal interface.
 
